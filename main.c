@@ -61,6 +61,7 @@ int main()
                     for (int p = 0; p < 9; p++) {
                         if (value == check_line[p] && p != t) {
                             ok = 0;
+                            //printf("OK ");
                             break;
                         }
                     }
@@ -73,10 +74,13 @@ int main()
 
 
         // verifica se há duplicadas nas colunas
+        //printf("\nX %d ", x);
         if(ok){
-            for (int i = x; i < x + 9; i++) {
-                for (int j = 0; j < 9; j++) {
-                    check_column[j] = board[j][i];
+            for (int i = 0; i < 9; i++) {
+                int indice = 0;
+                for (int j = x; j < x + 9; j++) {
+                    check_column[indice] = board[j][i];
+                    indice++;
                 }
                 for (int t = 0; t < 9; t++) {
                     comparator = check_column[t];
@@ -126,6 +130,7 @@ int main()
                         for (int j = 0; j < 9; j++) {
                             if (aux_array[i] == aux_array[j] && i != j) {
                                 ok = 0;
+                                //printf("OK3 ");
                                 break;
                             }
                         }
